@@ -1,0 +1,323 @@
+        /* Reset and Base Styles */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            user-select: none; /* Prevents accidental text selection while clicking buttons */
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            /* Immersive dark gaming background colors */
+            background: linear-gradient(135deg, #111424 0%, #0c0e1a 100%); 
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 40px 20px;
+            position: relative;
+        }
+
+        /* Top Right Navigation Layer */
+        .top-navigation {
+            position: absolute;
+            top: 25px;
+            right: 25px;
+            z-index: 10;
+        }
+
+        .btn-how-to {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(79, 195, 247, 0.4);
+            color: #4fc3f7;
+            padding: 8px 16px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.2s ease-in-out;
+        }
+
+        .btn-how-to:hover {
+            background: #4fc3f7;
+            color: #0c0e1a;
+            box-shadow: 0 0 15px rgba(79, 195, 247, 0.6);
+        }
+
+        .btn-how-to:active {
+            transform: scale(0.95);
+        }
+
+        /* Wide Layout Container covering full page width safely */
+        .game-card {
+            width: 100%;
+            max-width: 900px; /* Makes the game look wider across the page */
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 45px; /* Generous spacing for a wide layout */
+            margin-top: 40px; /* Leave space for top-right button on small viewports */
+        }
+
+        /* Game Title Styling - Now at the very top */
+        .game-title {
+            font-size: 3.2rem;
+            font-weight: 800;
+            color: #ffffff;
+            text-align: center;
+            letter-spacing: 3px;
+            text-shadow: 0 0 25px rgba(255, 255, 255, 0.15);
+            margin-bottom: 10px;
+        }
+
+        /* Top Header Score Layout - Stretches across the wide view */
+        .score-board {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            font-size: 1.4rem;
+            width: 100%;
+        }
+
+        .player-score { color: #29b6f6; text-transform: capitalize; }
+        .middle-score { color: #fbc02d; text-transform: capitalize; }
+        .comp-score { color: #29b6f6; text-transform: capitalize; }
+
+        /* Middle Status Displays */
+        .display-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .choice-line {
+            font-size: 1.3rem;
+            color: #4fc3f7;
+            font-weight: 500;
+            text-transform: capitalize;
+        }
+
+        .result-line {
+            font-size: 1.9rem;
+            font-weight: bold;
+            color: #ffffff; /* White text for great contrast against dark background */
+            margin-top: 15px;
+            text-transform: capitalize;
+        }
+
+        /* Bottom Interactive Control Buttons */
+        .controls-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 35px;
+        }
+
+        .weapon-options {
+            display: flex;
+            justify-content: center;
+            gap: 45px; /* Wider spacing between option buttons */
+            width: 100%;
+        }
+
+        .btn-weapon {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid transparent;
+            font-size: 1.6rem;
+            font-weight: bold;
+            cursor: pointer;
+            padding: 12px 28px;
+            border-radius: 8px;
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            text-transform: capitalize;
+        }
+
+        /* Hover states with vibrant glows matched to each game weapon */
+        .rock { color: #fbc02d; }
+        .rock:hover { 
+            background: rgba(251, 192, 45, 0.1); 
+            border-color: #fbc02d;
+            box-shadow: 0 0 20px rgba(251, 192, 45, 0.3);
+        }
+
+        .paper { color: #81c784; }
+        .paper:hover { 
+            background: rgba(129, 199, 132, 0.1); 
+            border-color: #81c784;
+            box-shadow: 0 0 20px rgba(129, 199, 132, 0.3);
+        }
+
+        .scissor { color: #e57373; }
+        .scissor:hover { 
+            background: rgba(229, 115, 115, 0.1); 
+            border-color: #e57373;
+            box-shadow: 0 0 20px rgba(229, 115, 115, 0.3);
+        }
+
+        /* Active click state for weapons */
+        .btn-weapon:active {
+            transform: scale(0.92);
+        }
+
+        /* Reset Button Styling with interactive states */
+        .btn-reset {
+            background: none;
+            border: none;
+            font-size: 1.2rem;
+            color: #78909c;
+            cursor: pointer;
+            text-transform: capitalize;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            padding: 5px 15px;
+            transition: all 0.2s ease;
+        }
+
+        .btn-reset:hover {
+            color: #ffffff;
+            text-shadow: 0 0 8px rgba(255, 255, 255, 0.6);
+        }
+
+        .btn-reset:active {
+            transform: scale(0.95);
+        }
+
+        /* Developer Footer Text with capitalized words */
+        .developer-credit {
+            font-size: 0.9rem;
+            color: #455a64;
+            font-weight: 500;
+            letter-spacing: 1px;
+            margin-top: 15px;
+            text-align: center;
+        }
+
+        /* Fluid scaling adjustments for mobile screens */
+        @media (max-width: 600px) {
+            body {
+                padding-top: 90px; /* Pushes content down on tiny screens so header doesn't overlap */
+            }
+            .top-navigation {
+                top: 15px;
+                right: 15px;
+            }
+            .btn-how-to {
+                padding: 6px 12px;
+                font-size: 0.8rem;
+            }
+            .game-card {
+                gap: 35px;
+                margin-top: 0;
+            }
+            .game-title { font-size: 2.4rem; }
+            .score-board { font-size: 1.1rem; }
+            .choice-line { font-size: 1.1rem; }
+            .result-line { font-size: 1.5rem; }
+            .weapon-options { gap: 15px; }
+            .btn-weapon { font-size: 1.2rem; padding: 8px 16px; }
+            .developer-credit { font-size: 0.8rem; }
+        }
+        .para{
+            background-color: red;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center ;
+            width: 290px;
+            
+        }
+        .par{
+            color: white;
+            margin: 20px 50px 20px 50px;
+        }
+        .modal-rules {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* Inafanya background ya nyuma iwe ya giza */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100; /* Inakaa juu ya vitu vyote */
+    backdrop-filter: blur(5px); /* Inaleta blur ya kijanja kwa nyuma */
+}
+
+.modal-content {
+    background: linear-gradient(135deg, #1e2238 0%, #141729 100%);
+    border: 1px solid rgba(79, 195, 247, 0.3);
+    padding: 30px;
+    border-radius: 16px;
+    width: 90%;
+    max-width: 500px;
+    position: relative;
+    color: #ffffff;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+    from { transform: scale(0.9); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+.modal-content h2 {
+    color: #4fc3f7;
+    margin-bottom: 20px;
+    font-size: 1.8rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 10px;
+}
+
+.close-btn {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 2rem;
+    color: #78909c;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.close-btn:hover {
+    color: #e57373; /* Inakuwa nyekundu ukisogeza mouse */
+}
+
+.rules-body p {
+    margin-bottom: 12px;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: #b0bec5;
+}
+
+.rules-summary {
+    background: rgba(255, 255, 255, 0.03);
+    padding: 15px;
+    border-radius: 8px;
+    margin-top: 15px;
+    border-left: 4px solid #fbc02d;
+}
+
+.rules-summary h3 {
+    color: #fbc02d;
+    font-size: 1.1rem;
+    margin-bottom: 8px;
+}
+
+.rules-summary ul {
+    list-style: none;
+    padding-left: 5px;
+}
+
+.rules-summary li {
+    margin-bottom: 6px;
+    font-size: 0.95rem;
+}
+
+a{
+    color: white;
+    
+}

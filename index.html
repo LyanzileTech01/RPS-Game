@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- user-scalable=no prevents zooming on mobile devices -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Rock Paper Scissors</title>
+    <link rel="stylesheet" href="style.css">
+    
+</head>
+<body>
+
+    <!-- Upper Right Header Action -->
+     <!-- Upper Right Header Action -->
+<div class="top-navigation">
+    <button onclick="show()" class="btn-how-to">How To Play</button>
+</div>
+
+<!-- Hili ndilo Box la How to Play lililoboreshwa kama Modal Popup -->
+<div id="playrules" class="modal-rules" style="display: none;">
+    <div class="modal-content">
+        <span class="close-btn" onclick="show()">&times;</span>
+        <h2>How to Play RPS Game</h2>
+        <div class="rules-body">
+            <p><strong>Step 1:</strong> Choose your move (Rock, Paper, or Scissor) to beat the bot.</p>
+            <p><strong>Step 2:</strong> Your move and the bot's move are compared to see the winner.</p>
+            <p><strong>Step 3:</strong> If you win, your score increases by +0.5.</p>
+            <p><strong>Step 4:</strong> You can see your chosen move and the bot's move in real-time.</p>
+            <p><strong>Step 5:</strong> Check the scoreboard to track Player vs Bot total wins.</p>
+            
+            <div class="rules-summary">
+                <h3>Rules:</h3>
+                <ul>
+                    <li>🪨 Rock beats Scissor</li>
+                    <li>✂️ Scissor beats Paper</li>
+                    <li>📄 Paper beats Rock</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+     <!--END HERE-->
+   
+
+    <div class="game-card">
+        <!-- Top Game Title (Placed directly above the scoreboard) -->
+        <h1 class="game-title">RPS Game</h1>
+
+        <!-- Top Scores stretched across the view -->
+        <div class="score-board">
+            <span class="player-score">Player: 0</span>
+            <span class="middle-score">Score: 0</span>
+            <span class="comp-score">Comp: 0</span>
+        </div>
+
+        <!-- Status & Results Display -->
+        <div class="display-section">
+            <div id="1" class="choice-line">Bot :</div>
+            <div id="2" class="choice-line">Human :</div>
+            <div class="result-line">Result :</div>
+        </div>
+
+        <!-- Interactive Buttons and Developer Credit -->
+        <div class="controls-section">
+            <div class="weapon-options">
+                <button onclick="playgame('rock')" id="btn" class="btn-weapon rock">Rock</button>
+                <button onclick="playgame('paper')" id="btn" class="btn-weapon paper">Paper</button>
+                <button onclick="playgame('scissor')" id="btn" class="btn-weapon scissor">Scissor</button>
+            </div>
+            <button onclick="reset()" class="btn-reset">Reset</button>
+            
+            <!-- Bottom center credit with capital letters -->
+            <div class="developer-credit"><a  href="https://chat.whatsapp.com/JlXatiVasAbDUDOEOy9J9y?s=cl&p=a&ilr=1&amv=2">LyanzileTech@Dev</a></div>
+      <script src="script.js"></script>
